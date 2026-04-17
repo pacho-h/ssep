@@ -44,51 +44,80 @@ ssep applies the [official Claude Code skill authoring guidelines](https://code.
 
 ### Prerequisites
 
-- [Claude Code](https://docs.claude.com/en/docs/claude-code) installed
+- [Claude Code](https://docs.claude.com/en/docs/claude-code) installed (plugin system requires v2.x or later — run `claude --version` to check)
 - (Recommended) [`superpowers`](https://github.com/obra/superpowers) plugin installed for the complementary universal skills
 - (For full functionality) [Figma MCP](https://help.figma.com/hc/en-us/articles/32132100833559) and [Playwright MCP](https://github.com/microsoft/playwright-mcp) configured
 
-### Add the marketplace
+### Install (pick one of three methods)
 
-In your `~/.claude/settings.json`, add to `extraKnownMarketplaces`:
+#### Method 1 — Interactive `/plugin` UI (recommended)
+
+The fastest path. Inside any Claude Code session:
+
+1. Run `/plugin` to open the plugin manager
+2. Open the **Marketplaces** tab → **Add marketplace** → choose **GitHub** → enter `pacho-h/ssep`
+3. Switch to the **Discover** tab → click **Install** on `ssep`
+4. Skills are immediately available; no restart required
+
+#### Method 2 — CLI
+
+If you prefer the terminal:
+
+```bash
+claude plugin marketplace add github:pacho-h/ssep
+claude plugin install ssep@ssep
+```
+
+#### Method 3 — Manual `~/.claude/settings.json` edit
+
+If you manage your Claude Code config as code, merge the following into `~/.claude/settings.json` (preserve any existing keys):
 
 ```json
 {
   "extraKnownMarketplaces": {
     "ssep": {
-      "source": {
-        "source": "github",
-        "repo": "pacho-h/ssep"
-      },
+      "source": { "source": "github", "repo": "pacho-h/ssep" },
       "autoUpdate": true
     }
-  }
-}
-```
-
-### Enable the plugin
-
-In the same `~/.claude/settings.json`, add to `enabledPlugins`:
-
-```json
-{
+  },
   "enabledPlugins": {
     "ssep@ssep": true
   }
 }
 ```
 
-Then run `/reload-plugins` in Claude Code (or restart the session).
+Then run `/reload-plugins` inside Claude Code (required after manual settings edits).
 
 ### Verify installation
 
-The four skills should appear under their slash-command form:
+In Claude Code, run `/plugin list` (or open the **Installed** tab in `/plugin`). You should see `ssep@ssep` listed and the four skills available as slash commands:
+
 - `/reviewing-spec-and-policy`
 - `/reviewing-design-fidelity`
 - `/improving-feature-completeness`
 - `/running-integration-tests`
 
 You can also trigger them with natural language: "review this PRD for me", "do a publishing review on the staging URL", "check production readiness", "write integration tests for this endpoint".
+
+## Updating and uninstalling
+
+| Action | Command / setting |
+|---|---|
+| Auto-update on session start | Set `autoUpdate: true` in the marketplace config (Method 3 includes this; Methods 1/2 default to false for non-official marketplaces) |
+| Manual update | `/plugin marketplace update ssep` or `claude plugin marketplace update ssep` |
+| Disable temporarily (keep installed) | `/plugin disable ssep@ssep` |
+| Uninstall | `/plugin uninstall ssep@ssep`, or remove the entries from `settings.json` and run `/reload-plugins` |
+
+## Troubleshooting
+
+| Symptom | Likely cause | Fix |
+|---|---|---|
+| `/plugin` command not recognized | Older Claude Code version | `claude --version` and update to a recent build (plugin system requires v2.x+) |
+| Marketplace fails to load | Network access or invalid manifest | Verify GitHub access; this repo's CI validates `marketplace.json` on every push, so the upstream copy is always schema-valid |
+| Skills don't appear after install | Cached marketplace state | Run `/reload-plugins`; if that fails, `rm -rf ~/.claude/plugins/cache` and reinstall |
+| Slash commands missing only in one project | Project settings overriding user settings | Check `.claude/settings.local.json` for a conflicting `enabledPlugins` entry |
+| Figma / Playwright skills error out | MCP server not configured | Confirm the relevant MCP server is installed; the skills fall back to manual workflows when MCPs are missing but lose their primary capture-and-compare value |
+| Auto-update not happening | `autoUpdate: false` (default for non-official marketplaces) | Set `autoUpdate: true` in `extraKnownMarketplaces.ssep.autoUpdate`, or update manually with `/plugin marketplace update ssep` |
 
 ## Workflow composition with `superpowers`
 

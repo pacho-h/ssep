@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Installation guide expanded: three install methods (`/plugin` UI, CLI, manual `settings.json`), explicit Update/Uninstall section, Troubleshooting table for common gotchas (cache, version, project overrides, MCP availability, autoUpdate)
 - README badges (license, version, Claude Code plugin, lint status)
 - Strengthened `Acknowledgments` section explicitly crediting `superpowers` (Jesse Vincent / claude-plugins-official) for design philosophy and skill anatomy
 - GitHub Actions `lint.yml` workflow validating `marketplace.json`, `plugin.json`, all `SKILL.md` frontmatter (name regex, description length, body line limits, references existence), and all eval JSON files on every push and PR
