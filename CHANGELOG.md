@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.3] — 2026-04-17
+
+### Changed
+- Skill descriptions expanded with additional Korean trigger phrases and proactive activation hints to improve matcher recall:
+  - `reviewing-design-fidelity`: added "피그마 비교해서 차이점 찾아줘", "figma vs 현재 화면", "구현이 디자인과 맞는지", "피그마대로 되어있나", "현황과 비교", "figma url 과 현재 화면 대조"
+  - `reviewing-spec-and-policy`: added "이 기획대로 구현하면 빠진게 뭐가 있을까", "스펙 갭", "요구사항 누락", "기획서 애매한 부분"; clarified distinction vs `reviewing-design-fidelity`
+  - `improving-feature-completeness`: added "엣지 케이스 다 챙겼나", "PR 전 점검", "빠진 상태 없나", "ship 전 검토"; added proactive trigger note for pre-PR moments on non-trivial feature branches
+  - `running-integration-tests`: added "staging에서 확인", "staging 검증", "배포 후 검증", "실제 화면에서 확인", "smoke test"; added proactive trigger for deployed-feature verification and unchecked PR test-plan items
+
 ## [0.1.2] — 2026-04-17
 
 ### Fixed
