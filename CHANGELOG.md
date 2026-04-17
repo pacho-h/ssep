@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] — 2026-04-17
+
+### Fixed
+- README version badge returned 404 (shields.io static badge missing color segment); replaced with dynamic GitHub tag badge that auto-syncs with released tags
+
+### Changed
+- Full name: `Super Software Engineering Power` → `Super Software Engineering Powers` across README title, `plugin.json` description, and `marketplace.json` metadata/plugin descriptions
+
 ## [0.1.1] — 2026-04-17
 
 ### Added
