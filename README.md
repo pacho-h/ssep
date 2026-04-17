@@ -1,17 +1,24 @@
 # ssep — Super Software Engineering Power
 
+[![License: MIT](https://img.shields.io/github/license/pacho-h/ssep?color=blue)](./LICENSE)
+[![Version](https://img.shields.io/badge/version-0.1.0-orange)](./CHANGELOG.md)
+[![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-Plugin-7C3AED?logo=anthropic&logoColor=white)](https://docs.claude.com/en/docs/claude-code/plugins)
+[![Lint](https://github.com/pacho-h/ssep/actions/workflows/lint.yml/badge.svg)](https://github.com/pacho-h/ssep/actions/workflows/lint.yml)
+
 A Claude Code plugin that adds specialized software engineering skills focused on the parts of the workflow that need **structured judgment** — spec review, design fidelity verification, production-readiness audits, and multi-layer testing.
 
-ssep is designed to **complement** the [`superpowers`](https://github.com/obra/superpowers) plugin, not replace it. Use `superpowers` for the universal disciplines (TDD, debugging, code review, planning); use ssep for the specialized review and verification work that superpowers doesn't cover.
+ssep is designed to **complement** the [`superpowers`](https://github.com/obra/superpowers) plugin by [Jesse Vincent](https://github.com/obra), not replace it. Use `superpowers` for the universal disciplines (TDD, debugging, code review, planning); use ssep for the specialized review and verification work that superpowers doesn't cover. See [Acknowledgments](#acknowledgments) for more.
 
 ## Skills included
 
 | Skill | What it does | Triggers on |
 |---|---|---|
-| `reviewing-spec-and-policy` | Audits PRDs, RFCs, requirement docs, policies — from text or Figma sources — for completeness, consistency, edge cases, policy compliance. | "review this spec", "기획서 검토", "PRD audit", Figma planning URLs |
-| `reviewing-design-fidelity` | Compares implemented UI to Figma source via Playwright + Figma MCP. Reports drift in spacing, color, typography, state coverage, responsive behavior, accessibility. | "퍼블리싱 검토", "design QA", "compare with figma", "픽셀 비교" |
-| `improving-feature-completeness` | Production-readiness audit. Surfaces the gap between "happy path passes" and "ready to ship" — edge cases, loading/empty/error states, a11y, i18n, observability, ops hooks. | "완성도 점검", "production ready", "polish this feature", "edge case 검토" |
-| `running-integration-tests` | Authors and runs unit/integration/end-to-end tests with Playwright MCP. Includes the meta-decision of which test level fits which scenario. | "통합 테스트", "e2e 테스트", "playwright로 검증", "integration test" |
+| `reviewing-spec-and-policy` | Audits PRDs, RFCs, requirement docs, policies — from text or Figma sources — for completeness, consistency, edge cases, policy compliance. | "review this spec", "audit this PRD", "check requirements", Figma planning URLs |
+| `reviewing-design-fidelity` | Compares implemented UI to Figma source via Playwright + Figma MCP. Reports drift in spacing, color, typography, state coverage, responsive behavior, accessibility. | "design QA", "compare with figma", "pixel comparison", "publishing review" |
+| `improving-feature-completeness` | Production-readiness audit. Surfaces the gap between "happy path passes" and "ready to ship" — edge cases, loading/empty/error states, a11y, i18n, observability, ops hooks. | "production ready check", "polish this feature", "edge case review", "ship readiness" |
+| `running-integration-tests` | Authors and runs unit/integration/end-to-end tests with Playwright MCP. Includes the meta-decision of which test level fits which scenario. | "integration test", "e2e test", "verify with playwright", "browser test" |
+
+> Skill descriptions also include localized trigger phrases (currently English + Korean) so bilingual teams can trigger skills in either language.
 
 ## Why this exists
 
@@ -38,7 +45,7 @@ ssep applies the [official Claude Code skill authoring guidelines](https://code.
 ### Prerequisites
 
 - [Claude Code](https://docs.claude.com/en/docs/claude-code) installed
-- (Recommended) `superpowers` plugin installed for the complementary universal skills
+- (Recommended) [`superpowers`](https://github.com/obra/superpowers) plugin installed for the complementary universal skills
 - (For full functionality) [Figma MCP](https://help.figma.com/hc/en-us/articles/32132100833559) and [Playwright MCP](https://github.com/microsoft/playwright-mcp) configured
 
 ### Add the marketplace
@@ -81,7 +88,7 @@ The four skills should appear under their slash-command form:
 - `/improving-feature-completeness`
 - `/running-integration-tests`
 
-You can also trigger them with natural language: "이 PRD 검토해줘", "퍼블리싱 검수 부탁", "완성도 점검", "통합 테스트 짜줘".
+You can also trigger them with natural language: "review this PRD for me", "do a publishing review on the staging URL", "check production readiness", "write integration tests for this endpoint".
 
 ## Workflow composition with `superpowers`
 
@@ -135,6 +142,18 @@ These skills assume the following MCP servers may be available; they fall back t
 
 If neither MCP is configured, the skills still produce usable output but lose their primary capture-and-compare value.
 
+## Acknowledgments
+
+ssep is built on the shoulders of [`superpowers`](https://github.com/obra/superpowers) by [Jesse Vincent](https://github.com/obra), shipped through the [official Anthropic Claude Code marketplace](https://github.com/anthropics/claude-plugins-official) (`superpowers@claude-plugins-official`).
+
+Several things in ssep wouldn't exist without superpowers:
+
+- **The discipline-first philosophy.** superpowers established that skills work best when they encode hard-won engineering disciplines (TDD, systematic debugging, verification before completion) as rigid workflows rather than loose suggestions. ssep extends the same model to spec review, fidelity review, completeness audit, and test-level decision-making.
+- **The composition model.** Each ssep skill explicitly cross-references the `superpowers:*` skill at its boundary (e.g., `improving-feature-completeness` defers to `superpowers:test-driven-development` once a fix is identified). The `When NOT to use` section in every ssep skill points users back to the right superpowers skill when their task crosses the boundary.
+- **The skill anatomy.** ssep follows the same `SKILL.md` + `references/` + `evals/` directory structure that superpowers popularized, with the official Claude Code skill guidelines layered on top.
+
+If you only install one Claude Code plugin, install superpowers first. ssep adds the most value when it's complementing — not competing with — that foundation.
+
 ## Roadmap
 
 - **v0.2** — optimize each skill's `description` via `skill-creator`'s `run_loop.py` against the included trigger eval sets (currently shipped at `skills/*/evals/trigger-eval.json`)
@@ -143,12 +162,13 @@ If neither MCP is configured, the skills still produce usable output but lose th
 
 ## Contributing
 
-Issues and pull requests welcome. Please:
+Issues, [Discussions](https://github.com/pacho-h/ssep/discussions), and pull requests welcome. Please:
 
 1. Read the [skill authoring conventions in `CLAUDE.md`](./CLAUDE.md) before editing any `SKILL.md`
 2. Keep `SKILL.md` files under ~150 lines (hard limit ~500); push deep content to `references/`
 3. Preserve the `When NOT to use` section — it's how the plugin stays scoped
 4. Add a CHANGELOG entry for every user-visible change
+5. CI runs schema validation on `marketplace.json`, `plugin.json`, and every `SKILL.md` frontmatter — make sure your changes pass before opening a PR
 
 ## License
 

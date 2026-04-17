@@ -1,0 +1,31 @@
+name: Lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-schemas:
+    name: Validate plugin manifests and skill frontmatter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install validators
+        run: pip install --quiet jsonschema PyYAML
+
+      - name: Validate plugin manifests
+        run: python .github/scripts/validate_manifests.py
+
+      - name: Validate SKILL.md frontmatter
+        run: python .github/scripts/validate_skills.py
+
+      - name: Validate eval JSON files
+        run: python .github/scripts/validate_evals.py

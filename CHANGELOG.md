@@ -5,6 +5,17 @@ All notable changes to ssep are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- README badges (license, version, Claude Code plugin, lint status)
+- Strengthened `Acknowledgments` section explicitly crediting `superpowers` (Jesse Vincent / claude-plugins-official) for design philosophy and skill anatomy
+- GitHub Actions `lint.yml` workflow validating `marketplace.json`, `plugin.json`, all `SKILL.md` frontmatter (name regex, description length, body line limits, references existence), and all eval JSON files on every push and PR
+- GitHub Discussions enabled for user feedback
+
+### Changed
+- README now fully English (Korean trigger phrases moved to skill descriptions only)
+
 ## [0.1.0] — 2026-04-17
 
 Initial release.
