@@ -1,0 +1,17 @@
+{
+  "skill_name": "improving-feature-completeness",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "방금 구현한 회원 카드 잠금 기능 (api-backoffice/src/items/users/cards/lock.controller.ts) 출시 가능한지 점검해줘. 유닛 테스트는 다 통과함.",
+      "expected_output": "Inventories the surface (route, service, related entities) before audit. Runs both backend track dimensions (validation, authz, concurrency, error handling, observability, ops) and any relevant frontend dimensions. Reports prioritized blockers/major/polish with probe + observation + suggested fix per finding.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "이 React 컴포넌트가 happy path는 잘 되는데 production-ready 인지 검토해줘. src/widgets/credit/CreditList.tsx",
+      "expected_output": "Reads the component, identifies all states it handles vs the full state taxonomy (loading-initial, loading-refresh, success-empty, success-populated, error-recoverable, error-fatal, optimistic). Reports state coverage gaps + accessibility + responsive findings. Does not claim 'works fine' without explicit probes.",
+      "files": []
+    }
+  ]
+}

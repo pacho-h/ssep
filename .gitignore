@@ -1,0 +1,16 @@
+# Python virtualenv (used for local optimization scripts only)
+.venv/
+__pycache__/
+*.pyc
+
+# Local backups
+*.bak
+*.bak.*
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+
+# Optimization run results (not part of the published plugin)
+skills/*/optimization-results/

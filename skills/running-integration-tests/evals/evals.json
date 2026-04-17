@@ -1,0 +1,23 @@
+{
+  "skill_name": "running-integration-tests",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "POST /api/credits/transfer 엔드포인트 통합 테스트 작성해줘. NestJS + MikroORM 환경. 동시성 시나리오도 포함.",
+      "expected_output": "Justifies integration level (real DB needed for transactional/concurrency behavior). Writes integration test using project's test infrastructure. Includes concurrent transfer race condition test. Test runs red first (broken impl) before green. Test does not mock the DB.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "신규 결제 플로우 e2e 테스트 작성해줘. 사용자가 상품 추가→장바구니→결제→확인까지. playwright로.",
+      "expected_output": "Identifies e2e level (multi-step user flow). Uses Playwright MCP (or authored Playwright Test file) with role-based selectors, browser_wait_for instead of sleep, captures diagnostics on failure. Single flow per test (not mega-test). Tests the contract (UI behavior + final state) not internal logs.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "이 함수에 e2e 테스트 추가해줘: src/utils/formatCurrency.ts (입력값 받아서 KRW 형식 문자열 반환).",
+      "expected_output": "Pushes back on the test level — formatCurrency is a pure function, e2e test would be wasteful. Recommends unit test instead, citing decision tree. Optionally writes the unit test as the correct alternative.",
+      "files": []
+    }
+  ]
+}

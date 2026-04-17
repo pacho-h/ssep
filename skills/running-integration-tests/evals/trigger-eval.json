@@ -1,0 +1,22 @@
+[
+  {"query": "POST /api/credits/transfer 엔드포인트 통합 테스트 짜줘 - NestJS + MikroORM 환경, 동시성 시나리오 포함", "should_trigger": true},
+  {"query": "신규 결제 플로우 e2e 테스트 추가 - 사용자가 상품 추가→장바구니→결제→확인까지 playwright로", "should_trigger": true},
+  {"query": "프론트백 연동 테스트 만들어줘 - 회원 등록 후 자동 RFID 발급되는 플로우", "should_trigger": true},
+  {"query": "browser에서 직접 자동화 테스트 돌려줘 - 로그인 후 dashboard 까지", "should_trigger": true},
+  {"query": "this needs an integration test against the real DB, not a unit test with mocks - the issue is in the FK constraint", "should_trigger": true},
+  {"query": "API 통합 테스트 부탁 - GET /api/orders 가 user 별 격리 잘 되는지 확인", "should_trigger": true},
+  {"query": "validate the whole signup-to-onboarding flow with playwright e2e", "should_trigger": true},
+  {"query": "통합 테스트 인프라 셋업 부탁 - test DB 분리하고 transactional rollback 패턴", "should_trigger": true},
+  {"query": "이 함수 단위 테스트 짜줘 - formatCurrency 입력 받아서 KRW 문자열 반환", "should_trigger": false},
+  {"query": "왜 이 테스트가 가끔 깨지지 - flaky 한 것 같은데 race condition 의심", "should_trigger": false},
+  {"query": "테스트 커버리지 늘려야 됨 - 어디부터 손대는 게 좋을지", "should_trigger": false},
+  {"query": "코드 리뷰 부탁 - PR #234 컴포넌트 prop drilling 너무 깊음", "should_trigger": false},
+  {"query": "playwright 로 figma 디자인이랑 비교 - 픽셀 검수", "should_trigger": false},
+  {"query": "playwright 어떻게 설치하지 monorepo 환경에서", "should_trigger": false},
+  {"query": "이 PRD 가 테스트 가능한 수준인지 acceptance criteria 검토", "should_trigger": false},
+  {"query": "manual QA 시나리오 작성 부탁 - 스마트폰으로 직접 돌려볼 step list", "should_trigger": false},
+  {"query": "TDD red-green-refactor 사이클로 새 함수 짜줘 - calculateRefund", "should_trigger": false},
+  {"query": "이 endpoint 동시 요청 들어왔을 때 race condition 있는지 검증하는 test 짜줘", "should_trigger": true},
+  {"query": "playwright MCP 써서 staging 환경 회원가입 자동화 한번 돌려줘", "should_trigger": true},
+  {"query": "jest config 어떻게 하면 더 빠르게 돌아가지", "should_trigger": false}
+]

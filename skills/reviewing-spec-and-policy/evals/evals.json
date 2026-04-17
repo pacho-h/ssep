@@ -1,0 +1,23 @@
+{
+  "skill_name": "reviewing-spec-and-policy",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "다음 PRD를 검토해서 빠진 부분이나 모순을 찾아줘.\n\n# 회원 카드 잠금 기능\n관리자가 부정 사용 의심되는 회원의 RFID 카드를 일시 잠금할 수 있어야 한다. 잠금된 카드는 충전 시도 시 거부된다. 관리자는 사유를 입력하고 잠금/해제할 수 있다.",
+      "expected_output": "Structured review report with at least 3 concrete findings (blockers/major) covering: missing acceptance criteria for what 'reject charging' looks like to user, missing audit trail spec, missing edge case for active session at lock time, ambiguity in '의심되는'.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "이 요구사항이 우리 회사 내부 PII 보존 정책 (90일 후 삭제) 에 어긋나지 않는지 봐줘.\n\n요구사항: 신규 회원 가입 시 휴대폰 번호와 주소를 받아서 영구 저장한다. 마케팅 분석 목적으로 사용한다.",
+      "expected_output": "Identifies a blocker-level policy violation: '영구 저장' contradicts '90일 후 삭제'. Cites specific text. Suggests resolution paths (anonymize after 90d, separate consent for marketing retention, etc).",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "이 figma 기획 파일을 보고 스펙 검토해줘: https://figma.com/design/ABC123/checkout-flow?node-id=12-34",
+      "expected_output": "Acknowledges Figma URL parsing (12-34 → 12:34), proposes extracting frame metadata first, then asks clarifying questions about which specific frames are in scope OR proceeds with full extraction. Output should reference frame IDs not just visual descriptions.",
+      "files": []
+    }
+  ]
+}

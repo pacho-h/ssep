@@ -1,0 +1,22 @@
+[
+  {"query": "방금 머지한 회원 카드 잠금 기능 출시 전에 완성도 점검 한번 부탁 - 유닛 테스트는 다 통과함", "should_trigger": true},
+  {"query": "this CreditList component works fine on the happy path but I want to raise the bar before shipping", "should_trigger": true},
+  {"query": "엣지 케이스 검토 부탁 - POST /api/credits/transfer 엔드포인트", "should_trigger": true},
+  {"query": "production ready 인지 봐줘 - SettingsForm.tsx 구현 끝났는데 a11y랑 i18n 빠진 거 있을 듯", "should_trigger": true},
+  {"query": "이 backend 엔드포인트 ops hook (admin override, audit trail) 빠진 거 없는지 audit 부탁 - lock.controller.ts", "should_trigger": true},
+  {"query": "ship 가능한지 마지막 점검 좀 - 결제 플로우 전체", "should_trigger": true},
+  {"query": "loading empty error state 다 커버됐는지 검토 - widgets/credit/CreditList.tsx", "should_trigger": true},
+  {"query": "happy path 만 되고 나머지는 깨진 것 같은데 어디 빠졌는지 찾아줘 - profile 페이지", "should_trigger": true},
+  {"query": "이 새 기능 어떻게 구현하지 멤버십 등급 차등화 brainstorm 도와줘", "should_trigger": false},
+  {"query": "TDD로 새 함수 짜줘 - calculateMonthlyDiscount", "should_trigger": false},
+  {"query": "코드 깔끔하게 리팩토링 부탁 - service layer 너무 길어짐", "should_trigger": false},
+  {"query": "버그 잡아줘 - submit 누르면 가끔 두 번 호출됨", "should_trigger": false},
+  {"query": "PR 리뷰 부탁 #234 의 코드 구조 평가", "should_trigger": false},
+  {"query": "디자인이랑 픽셀 비교 - figma vs staging URL", "should_trigger": false},
+  {"query": "이 PRD 검토 - 빠진 요구사항 있는지", "should_trigger": false},
+  {"query": "패키지 업데이트 영향도 분석 - mikro-orm 6.x 로 올릴 때 깨지는 거 있을지", "should_trigger": false},
+  {"query": "통합 테스트 짜줘 - 결제 플로우 e2e", "should_trigger": false},
+  {"query": "출시 전 빠진 거 있나 audit 좀 - particularly observability and error handling", "should_trigger": true},
+  {"query": "이 기능 polish 부탁 - 눈에 보이는 건 다 되는데 뭔가 부족함", "should_trigger": true},
+  {"query": "docker 컨테이너 메모리 사용량 분석", "should_trigger": false}
+]

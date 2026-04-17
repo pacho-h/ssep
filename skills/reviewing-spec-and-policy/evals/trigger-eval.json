@@ -1,0 +1,22 @@
+[
+  {"query": "주말에 PM이 보낸 신규 회원 가입 기획서 PDF 받았는데 ssep 폴더에 spec_v3.md 로 저장해뒀어. 한번 검토해줄래? 빠진 부분이나 모순 있을까봐", "should_trigger": true},
+  {"query": "이 PRD가 우리 회사 PII 90일 보존 정책에 어긋나는지 봐줘 - docs/auth-rewrite-prd.md 의 retention 섹션", "should_trigger": true},
+  {"query": "https://figma.com/design/abc123/checkout-flow?node-id=12-34 이 figma 기획 파일 보고 acceptance criteria 다 적혀있는지 audit 부탁", "should_trigger": true},
+  {"query": "RFC #42 review 좀 해줘. 특히 edge case랑 backwards compat 부분이 다 다뤄졌는지", "should_trigger": true},
+  {"query": "is this requirements doc internally consistent? two sections seem to disagree about session timeout", "should_trigger": true},
+  {"query": "이 기획서 스펙 갭 좀 찾아줘. 5 페이지짜리 markdown임 - planning/credit-transfer-v2.md", "should_trigger": true},
+  {"query": "방금 노션에서 복사한 백오피스 회원 잠금 기능 명세인데, 정책 누락된 거 없는지 검수", "should_trigger": true},
+  {"query": "GDPR compliance check on this user data export spec please", "should_trigger": true},
+  {"query": "이 figma 기획 보고 첫 구현 시작해줘. node-id 25-67", "should_trigger": false},
+  {"query": "PRD 새로 만들어야 되는데 brainstorm 좀 도와줘 - 새 멤버십 등급 도입", "should_trigger": false},
+  {"query": "이 PR이 스펙대로 구현됐는지 코드 리뷰 좀 - PR #234", "should_trigger": false},
+  {"query": "스펙 문서 영어로 번역해줘 - docs/spec-ko.md 를 spec-en.md 로", "should_trigger": false},
+  {"query": "퍼블리싱 검토 부탁 - staging URL이랑 figma frame 비교해서 픽셀 차이", "should_trigger": false},
+  {"query": "이 스펙대로 코드 짜줘 first cut 으로", "should_trigger": false},
+  {"query": "버그 리포트 분석 - 결제 시 500 에러 발생 케이스", "should_trigger": false},
+  {"query": "PRD 작성 템플릿 어떤 거 쓰는 게 좋아", "should_trigger": false},
+  {"query": "이 정책 위반 사례를 슬랙 #compliance 채널에 어떻게 보고하는 게 맞아", "should_trigger": false},
+  {"query": "테스트 케이스 짜야 하는데 spec의 acceptance criteria 가 너무 모호해서 못 짜겠어", "should_trigger": true},
+  {"query": "방금 받은 이메일에 PRD draft 첨부됐는데 ship 가능한 수준인지 한번 봐줘", "should_trigger": true},
+  {"query": "리팩토링 계획 짜줘 - 이 모듈 너무 커짐", "should_trigger": false}
+]

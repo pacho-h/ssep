@@ -1,0 +1,23 @@
+{
+  "skill_name": "reviewing-design-fidelity",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "구현된 페이지 https://staging.evar.co.kr/dashboard 와 figma 디자인 https://figma.com/design/XYZ789/dashboard?node-id=10-20 비교해서 차이점 알려줘. 모바일/데스크톱 둘 다.",
+      "expected_output": "Captures both Figma frames (mobile + desktop variants if available) and uses Playwright at matching viewports (375 + 1440). Reports structured findings citing Figma node IDs and screenshot/computed-style evidence. Covers at least: layout/spacing, typography, color, state coverage.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "이 컴포넌트가 디자인 시스템 토큰을 안 쓰고 있는 것 같아. 검수해줘. https://app.evar.co.kr/settings/profile 의 저장 버튼.",
+      "expected_output": "Uses browser_evaluate to read computed styles of the save button, compares against design tokens via get_variable_defs, flags any hardcoded values that should reference tokens. Distinguishes drift findings from design-side issues.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "퍼블리싱 검토 부탁. 최근 머지된 PR #123 의 결제 페이지가 디자인이랑 매칭되는지.",
+      "expected_output": "Asks for both the figma URL and the deployed/preview URL before proceeding (no one-sided review). Once provided, runs the standard fidelity matrix audit at all design-defined viewports and states.",
+      "files": []
+    }
+  ]
+}
