@@ -1,7 +1,7 @@
-# ssep — Super Software Engineering Power
+# ssep — Super Software Engineering Powers
 
 [![License: MIT](https://img.shields.io/github/license/pacho-h/ssep?color=blue)](./LICENSE)
-[![Version](https://img.shields.io/badge/version-0.1.1)](./CHANGELOG.md)
+[![Version](https://img.shields.io/github/v/tag/pacho-h/ssep?label=version&color=blue)](./CHANGELOG.md)
 [![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-Plugin-7C3AED?logo=anthropic&logoColor=white)](https://docs.claude.com/en/docs/claude-code/plugins)
 [![Lint](https://github.com/pacho-h/ssep/actions/workflows/lint.yml/badge.svg)](https://github.com/pacho-h/ssep/actions/workflows/lint.yml)
 
