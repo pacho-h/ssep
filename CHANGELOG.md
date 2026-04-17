@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] — 2026-04-17
+
 ### Added
 - Installation guide expanded: three install methods (`/plugin` UI, CLI, manual `settings.json`), explicit Update/Uninstall section, Troubleshooting table for common gotchas (cache, version, project overrides, MCP availability, autoUpdate)
 - README badges (license, version, Claude Code plugin, lint status)

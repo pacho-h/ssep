@@ -5,17 +5,24 @@
     "url": "https://github.com/pacho-h"
   },
   "metadata": {
-    "description": "Marketplace hosting the ssep plugin — Super Software Engineering Power skills for Claude Code",
-    "version": "0.1.0"
+    "description": "Marketplace hosting the ssep plugin \u2014 Super Software Engineering Power skills for Claude Code",
+    "version": "0.1.1"
   },
   "plugins": [
     {
       "name": "ssep",
       "source": "./",
-      "description": "Super Software Engineering Power — specialized skills for spec review, design fidelity, feature completeness, and multi-layer testing. Complements the superpowers plugin.",
-      "version": "0.1.0",
+      "description": "Super Software Engineering Power \u2014 specialized skills for spec review, design fidelity, feature completeness, and multi-layer testing. Complements the superpowers plugin.",
+      "version": "0.1.1",
       "category": "engineering",
-      "tags": ["spec-review", "design-review", "figma", "playwright", "integration-testing", "audit"],
+      "tags": [
+        "spec-review",
+        "design-review",
+        "figma",
+        "playwright",
+        "integration-testing",
+        "audit"
+      ],
       "strict": false
     }
   ]

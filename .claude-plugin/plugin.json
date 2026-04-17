@@ -1,7 +1,7 @@
 {
   "name": "ssep",
-  "description": "Super Software Engineering Power — specialized skills for spec review, design fidelity, feature completeness, and multi-layer testing. Complements the superpowers plugin by filling gaps in spec/design review and integration testing workflows.",
-  "version": "0.1.0",
+  "description": "Super Software Engineering Power \u2014 specialized skills for spec review, design fidelity, feature completeness, and multi-layer testing. Complements the superpowers plugin by filling gaps in spec/design review and integration testing workflows.",
+  "version": "0.1.1",
   "author": {
     "name": "bill",
     "email": "bill.han@evar.co.kr"
