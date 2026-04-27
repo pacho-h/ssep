@@ -91,6 +91,12 @@ Use the structure in `references/fidelity-report-template.md`. Each finding incl
 - Priority
 - Concrete fix suggestion (token name, CSS property, or component prop change)
 
+When the report leads to an actual PR, embed the captured screenshots in the PR body — text-only fidelity reports lose their evidence the moment the temp screenshot files are deleted. See `references/fidelity-report-template.md` § "Embedding evidence in PRs".
+
+### 7. Hand off to the next skill
+
+A fidelity review often surfaces gaps that aren't fidelity gaps — empty/error states missing entirely, API contract drift, no integration coverage for the BE change you just discovered. Don't fix them silently inside this skill — invoke the right next-step skill so the work stays auditable. See `references/skill-handoff.md` for the trigger matrix.
+
 ## Principles
 
 - **Tokens first, pixels second.** A 14px font-size when the design token is `text-sm` (15px) is a finding even if visually indistinguishable — the design system contract is what gets re-rendered when tokens change.
@@ -102,6 +108,7 @@ Use the structure in `references/fidelity-report-template.md`. Each finding incl
 ## Detailed references
 
 - `references/figma-extraction.md` — tactics for multi-variant frames, Code Connect mappings, and choosing which frames to review
-- `references/playwright-capture.md` — viewport matrix, state-capture sequence, console-error interpretation
+- `references/playwright-capture.md` — viewport matrix, state-capture **checklist**, console-error interpretation
 - `references/fidelity-matrix.md` — full descriptions and example findings for the seven dimensions
-- `references/fidelity-report-template.md` — annotated template with example findings showing artifact references
+- `references/fidelity-report-template.md` — annotated template with example findings showing artifact references, plus PR-embed guidance
+- `references/skill-handoff.md` — when to invoke `improving-feature-completeness`, `running-integration-tests`, or `reviewing-spec-and-policy` from a fidelity review

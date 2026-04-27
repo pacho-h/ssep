@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- `reviewing-design-fidelity/references/skill-handoff.md` — explicit hand-off matrix from fidelity review to `improving-feature-completeness` (state/coverage gaps), `running-integration-tests` (BE contract drift / route bugs), and `reviewing-spec-and-policy` (design-side defects). Lists chain anti-patterns and `superpowers` composition paths.
+- State coverage checklist in `reviewing-design-fidelity/references/playwright-capture.md` — explicit table covering default / empty / loading / error / hover / focus / active / disabled / long-content states with triggers and rationale; warns against synthetic-event clicks that don't update React state.
+- Embedding-evidence-in-PRs section in `reviewing-design-fidelity/references/fidelity-report-template.md` — guidance on saving captures to non-temporary paths, embedding before/after pairs in the PR body, and integrating with screenshot-upload workflows. Adds a new anti-pattern entry.
+- Route-matching integration-test pattern in `running-integration-tests/references/integration-test-patterns.md` — supertest example for the static-vs-dynamic-route collision case (e.g. NestJS `:itemIdx` swallowing `scope-catalog`), with the rationale that handler-unit tests cannot catch this class of bug.
+
+### Changed
+- `reviewing-design-fidelity/SKILL.md` workflow gains a Step 7 ("Hand off to the next skill") and Step 6 now links to the PR-embed guidance.
+
 ## [0.1.3] — 2026-04-17
 
 ### Changed
