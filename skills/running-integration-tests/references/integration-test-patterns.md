@@ -50,6 +50,58 @@ Wrap the HTTP framework's test client into a small helper that:
 - **Asserting on log lines.** Logs are an implementation detail; refactors break tests.
 - **Forgetting the test runs against test data.** A test that asserts "user count > 0" passes accidentally because seed data exists; it would fail on a clean DB. Assert on state created by the test itself.
 
+## Route matching tests (when the bug is in the router, not the handler)
+
+Some bugs live in the router, not the handler — typically when a static path collides with a parameterized one.
+
+```typescript
+// Express / NestJS pattern: declaration order decides which route wins.
+@Get('items/:itemIdx')   // declared first
+@Get('items/scope-catalog')  // declared second — never matched
+```
+
+A request to `/items/scope-catalog` is matched by `:itemIdx`, the value `"scope-catalog"` flows into a `ParseIntPipe`, and the response is `400 Validation failed (numeric string is expected)`. The handler unit test passes because it calls the method directly and never exercises the router.
+
+The fix is trivial (move the static route above the dynamic one), but unit tests cannot prevent a regression — they bypass the router entirely. An integration test that hits the actual HTTP server pins the contract:
+
+```typescript
+import * as request from 'supertest';
+
+describe('GET /items/scope-catalog (route matching)', () => {
+  let app: INestApplication;
+
+  beforeAll(async () => {
+    app = await createTestApp();
+  });
+  afterAll(() => app.close());
+
+  it('static route is matched before the dynamic :itemIdx route', async () => {
+    const res = await request(app.getHttpServer())
+      .get('/items/scope-catalog')
+      .auth(...adminToken());
+
+    expect(res.status).toBe(200);
+    expect(Array.isArray(res.body.items)).toBe(true);
+  });
+
+  it('the dynamic route still works for numeric ids', async () => {
+    const res = await request(app.getHttpServer())
+      .get('/items/1')
+      .auth(...adminToken());
+
+    expect(res.status).toBe(200);
+  });
+});
+```
+
+Patterns that benefit from a route-matching integration test:
+- A static path and a dynamic param at the same depth (`/x/abc` and `/x/:y`)
+- Optional params or wildcards (`/x/*` collisions)
+- Method-overloaded routes where one method also has a dynamic segment
+- Routes whose ordering was rearranged by an editor / formatter that doesn't understand framework semantics
+
+Skip when only one shape exists at that depth — there's nothing to disambiguate.
+
 ## Skeleton (NestJS + MikroORM example, adapt for project)
 
 ```typescript

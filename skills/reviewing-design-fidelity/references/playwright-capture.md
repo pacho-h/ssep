@@ -34,6 +34,26 @@ For a single page at one viewport, the standard capture sequence is:
 
 For loading/empty/error states, drive the page into that state first (e.g., navigate with a query param, intercept the network response, or seed the test data) before snapshotting.
 
+## State coverage checklist
+
+The most common fidelity-review failure mode is "happy path only" — capturing the page with a real list of items and declaring it matches the design. The drift hides in the states that rarely appear during a designer's review. Walk this checklist before producing the report and mark each as captured, intentionally skipped (with reason), or N/A.
+
+| State | Trigger | Why it matters |
+|---|---|---|
+| Default (data present) | Real or seeded data | Baseline — but not enough on its own |
+| Empty | `items=[]` (clear filter / new account) | Empty placeholder copy, illustration, alignment, CTA presence |
+| Loading | Throttle network or intercept with delay | Skeleton vs spinner vs no-feedback (a fidelity finding by itself) |
+| Error | Force 4xx/5xx (stub or temporarily break URL) | Fallback message, retry button, prevents bare TypeError leakage |
+| Hover | `browser_hover` on each interactive element | Color/shadow/cursor token drift |
+| Focus (keyboard) | `browser_press_key("Tab")` through the page | Focus ring visibility — usually the largest a11y gap |
+| Active / pressed | `browser_click` and capture mid-press if visible | Down-state styling |
+| Disabled | Render with disabled prop / state | Distinct from default by token, often missed |
+| Long content | Inject realistic-worst-case strings (long IPv6, multi-line scope name, very long names with mixed scripts) | Truncation, ellipsis, layout collapse |
+
+Skipping a state is fine when the design has no spec for it — call that out as a **design-side coverage gap** in the report (Section "Design-side issues"), so the gap is visible rather than silently dropped.
+
+For interaction-driven states (hover/focus/active), use a real `browser_click` / `browser_hover` MCP call rather than dispatching a synthetic event in `browser_evaluate` — React listens for the framework-synthesized event, not raw DOM `click()`, so JS-evaluated clicks often don't change state and the captured screenshot looks identical to the default.
+
 ## Console errors as findings
 
 Every console error captured during page load is a fidelity finding even if visually invisible. Common high-impact cases:
