@@ -11,7 +11,7 @@ This directory is a Claude Code plugin providing four specialized SE skills (spe
 
 ## Trigger discipline
 
-These skills are most often *skipped* not because the trigger keywords are unclear but because the task looks small in the moment. The descriptions in v0.3.0+ explicitly push back against this rationalization, but contributors editing descriptions or references should preserve and extend the pattern.
+These skills are most often *skipped* not because the trigger keywords are unclear but because the task looks small in the moment. The descriptions in v0.2.1+ explicitly push back against this rationalization, but contributors editing descriptions or references should preserve and extend the pattern.
 
 Real-session skip rationalizations and the right move:
 

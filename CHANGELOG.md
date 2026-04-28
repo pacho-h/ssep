@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.3.0] — 2026-04-28
+## [0.2.1] — 2026-04-28
 
 ### Changed
 - All four skill descriptions strengthened with explicit "Triggers even when ..." anti-skip clauses, naming the dominant skip rationalization per skill so the description itself pushes back against it:
@@ -18,9 +18,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - `CLAUDE.md` — new "Trigger discipline" section documenting four real-session skip rationalizations with their countering moves, derived from a session retrospective where all four skills should have fired but were each skipped under "task looks small" reasoning. Also notes the convention that future description edits must preserve at least one explicit "Triggers even when ..." clause per skill.
-
-### Why this is a minor (not patch) bump
-- Description matcher behavior changes — each description gained ~150 chars of new trigger surface. This is a behavior-relevant change for the eval loop and downstream agents that cache description hashes, so the version is bumped past patch.
 
 ## [0.2.0] — 2026-04-27
 
