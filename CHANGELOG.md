@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] — 2026-04-27
+
 ### Added
 - `reviewing-design-fidelity/references/skill-handoff.md` — explicit hand-off matrix from fidelity review to `improving-feature-completeness` (state/coverage gaps), `running-integration-tests` (BE contract drift / route bugs), and `reviewing-spec-and-policy` (design-side defects). Lists chain anti-patterns and `superpowers` composition paths.
 - State coverage checklist in `reviewing-design-fidelity/references/playwright-capture.md` — explicit table covering default / empty / loading / error / hover / focus / active / disabled / long-content states with triggers and rationale; warns against synthetic-event clicks that don't update React state.
