@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] — 2026-04-28
+
+### Changed
+- All four skill descriptions strengthened with explicit "Triggers even when ..." anti-skip clauses, naming the dominant skip rationalization per skill so the description itself pushes back against it:
+  - `reviewing-design-fidelity` — "even when the requested change appears trivial — single label swap, one CSS rule, one-line JSX edit"
+  - `reviewing-spec-and-policy` — "even when the requirement statement reads as a single concise sentence ... concise requirements typically hide unstated questions about default values for existing data, role/permission interactions, and state-transition edge cases"
+  - `improving-feature-completeness` — "even when the diff is small or the happy path was verified manually ... 'I already clicked through it in Playwright' does not substitute for the audit"
+  - `running-integration-tests` — "even when only one boundary is crossed ... manual verification proves the path works once but does not produce a codified regression test"
+
+### Added
+- `CLAUDE.md` — new "Trigger discipline" section documenting four real-session skip rationalizations with their countering moves, derived from a session retrospective where all four skills should have fired but were each skipped under "task looks small" reasoning. Also notes the convention that future description edits must preserve at least one explicit "Triggers even when ..." clause per skill.
+
+### Why this is a minor (not patch) bump
+- Description matcher behavior changes — each description gained ~150 chars of new trigger surface. This is a behavior-relevant change for the eval loop and downstream agents that cache description hashes, so the version is bumped past patch.
+
 ## [0.2.0] — 2026-04-27
 
 ### Added

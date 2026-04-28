@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Marketplace hosting the ssep plugin \u2014 Super Software Engineering Powers skills for Claude Code",
-    "version": "0.2.0"
+    "version": "0.3.0"
   },
   "plugins": [
     {
       "name": "ssep",
       "source": "./",
       "description": "Super Software Engineering Powers \u2014 specialized skills for spec review, design fidelity, feature completeness, and multi-layer testing. Complements the superpowers plugin.",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "category": "engineering",
       "tags": [
         "spec-review",

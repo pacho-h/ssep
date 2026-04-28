@@ -1,7 +1,8 @@
 {
   "name": "ssep",
   "description": "Super Software Engineering Powers \u2014 specialized skills for spec review, design fidelity, feature completeness, and multi-layer testing. Complements the superpowers plugin by filling gaps in spec/design review and integration testing workflows.",
-  "version": "0.2.0",
+  "//": "v0.3.0 added explicit anti-skip clauses to all four skill descriptions to push back against agentic 'task looks small, skip the skill' rationalization observed in real sessions.",
+  "version": "0.3.0",
   "author": {
     "name": "bill",
     "email": "bill.han@evar.co.kr"
